@@ -2,7 +2,6 @@
   pkgs ? <nixpkgs> { },
   fetchFromGitHub,
   makeDesktopItem,
-  #makeBinaryWrapper,
 }:
 pkgs.stdenv.mkDerivation {
   name = "ioquake3";
