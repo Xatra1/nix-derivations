@@ -14,6 +14,8 @@ pkgs.stdenv.mkDerivation {
     fetchSubmodules = true;
   };
 
+  enableParallelBuilding = true;
+
   nativeBuildInputs = with pkgs; [
     cmake
     kdePackages.extra-cmake-modules
