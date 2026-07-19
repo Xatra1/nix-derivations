@@ -9,8 +9,8 @@ pkgs.stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "ioquake";
     repo = "ioq3";
-    rev = "67e4fa978530ae0a3f62fedb0a26ac4797443429";
-    hash = "sha256-5YkZIBq53nzuvrCdA5sNZrqhNXBWN2j8R5VtlusLQtk=";
+    rev = "588393618dbc82e7207c21c6ddecca229944a03a";
+    hash = "sha256-BiyBg+Jy8V2v119NqcX/YUwDb8zZdq7+FfjWNenaEA4=";
   };
 
   enableParallelBuilding = true;
