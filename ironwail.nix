@@ -55,7 +55,7 @@ pkgs.stdenv.mkDerivation {
   desktopItems = [
     (makeDesktopItem {
       name = "ironwail";
-      exec = "ironwail";
+      exec = "ironwail -basedir /home/solarfire/.local/share/ironwail";
       icon = "ironwail";
       comment = "Fork of the QuakeSpasm engine for id software's Quake";
       desktopName = "Ironwail";
