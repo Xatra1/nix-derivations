@@ -1,7 +1,7 @@
 # My Nix Derivations
 Take what you like. They're open source, after all.
 
-`ventoy/`: Tool to create a bootable drive for chainloading ISO files. Rewrite of [the original nixpkg](https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/by-name/ve/ventoy/package.nix) to update it from 1.1.12 to the latest release, and slim it down to only contain Ventoy2Disk. Also installs parted, which is required for GPT installs.
+`ventoy/`: Tool to create a bootable drive for chainloading ISO files. Rewrite of [the original nixpkg](https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/by-name/ve/ventoy/package.nix) to update it from 1.1.12 to the latest release, and slim it down to only contain Ventoy2Disk. Also installs parted, which is required for GPT installs. [repo](https://github.com/ventoy/Ventoy)
 
 **Disclaimer:** Ventoy contains binary blobs which cannot be 100% trusted to be compliant to their licenses or free of malware, but the Ventoy team claims that they are all open source and has done their best to document them [here.](https://github.com/ventoy/Ventoy/blob/master/BLOB_List.md)
 
