@@ -2,6 +2,7 @@
   pkgs ? <nixpkgs> { },
   fetchFromGitHub,
   makeDesktopItem,
+  unstableGitUpdater,
 }:
 pkgs.stdenv.mkDerivation {
   name = "ioquake3";
@@ -43,4 +44,6 @@ pkgs.stdenv.mkDerivation {
       ];
     })
   ];
+
+  passthru.updateScript = unstableGitUpdater { };
 }

@@ -1,6 +1,7 @@
 {
   pkgs ? <nixpkgs> { },
   fetchFromGitHub,
+  unstableGitUpdater,
   ...
 }:
 pkgs.stdenv.mkDerivation {
@@ -27,4 +28,6 @@ pkgs.stdenv.mkDerivation {
     kdePackages.wrapQtAppsHook
     rapidjson
   ];
+
+  passthru.updateScript = unstableGitUpdater { };
 }
