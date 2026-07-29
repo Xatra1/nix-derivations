@@ -2,7 +2,6 @@
   pkgs ? <nixpkgs> { },
   fetchFromGitHub,
   unstableGitUpdater,
-  ...
 }:
 pkgs.stdenv.mkDerivation {
   name = "kate-discord-rpc";

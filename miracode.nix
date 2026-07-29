@@ -1,7 +1,6 @@
 {
   pkgs ? <nixpkgs> { },
   fetchurl,
-  ...
 }:
 pkgs.stdenv.mkDerivation {
   name = "miracode-nerdfont";
