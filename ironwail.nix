@@ -1,10 +1,28 @@
 {
-  pkgs ? <nixpkgs> { },
+  lib,
+  stdenv,
   fetchFromGitHub,
   makeDesktopItem,
+  copyDesktopItems,
+  pkg-config,
+  vulkan-headers,
+  gzip,
+  libGL,
+  libvorbis,
+  libmad,
+  flac,
+  curl,
+  libopus,
+  opusfile,
+  libogg,
+  libxmp,
+  mpg123,
+  vulkan-loader,
+  SDL2,
 }:
-pkgs.stdenv.mkDerivation {
-  name = "ironwail";
+stdenv.mkDerivation (finalAttrs: {
+  __structuredAttrs = true;
+  pname = "ironwail";
   version = "0.8.1";
 
   src = fetchFromGitHub {
@@ -16,27 +34,30 @@ pkgs.stdenv.mkDerivation {
 
   sourceRoot = "source/Quake";
 
-  nativeBuildInputs = with pkgs; [
-    copyDesktopItems
-    pkg-config
+  buildInputs = [
     vulkan-headers
-    gzip
     libGL
     libvorbis
     libmad
     flac
     curl
     libopus
-    opusfile
     libogg
     libxmp
     mpg123
     vulkan-loader
+    opusfile
+  ];
+
+  nativeBuildInputs = [
+    copyDesktopItems
+    pkg-config
+    gzip
     SDL2
   ];
 
+  strictDeps = true;
   buildFlags = [ "DO_USERDIRS=1" ];
-
   enableParallelBuilding = true;
 
   preInstall = ''
@@ -59,7 +80,19 @@ pkgs.stdenv.mkDerivation {
       icon = "ironwail";
       comment = "Fork of the QuakeSpasm engine for id software's Quake";
       desktopName = "Ironwail";
-      categories = [ "Game" ];
+
+      categories = [
+        "Game"
+        "ActionGame"
+      ];
     })
   ];
-}
+
+  meta = {
+    description = "High-performance fork of the QuakeSpasm engine for id software's Quake";
+    homepage = "https://github.com/andrei-drexler/ironwail";
+    license = lib.licenses.gpl2;
+    platforms = lib.platforms.linux;
+    maintainers = with lib.maintainers; [ Xatra1 ];
+  };
+})

@@ -1,11 +1,18 @@
 {
-  pkgs ? <nixpkgs> { },
+  lib,
+  stdenv,
   fetchFromGitHub,
   makeDesktopItem,
+  copyDesktopItems,
   unstableGitUpdater,
+  makeBinaryWrapper,
+  cmake,
+  SDL2,
 }:
-pkgs.stdenv.mkDerivation {
-  name = "ioquake3";
+stdenv.mkDerivation (finalAttrs: {
+  __structuredAttrs = true;
+  pname = "ioquake3";
+  version = "0-unstable-2026-07-19";
 
   src = fetchFromGitHub {
     owner = "ioquake";
@@ -15,10 +22,10 @@ pkgs.stdenv.mkDerivation {
   };
 
   enableParallelBuilding = true;
+  strictDeps = true;
+  buildInputs = [ SDL2 ];
 
-  buildInputs = with pkgs; [ SDL2 ];
-
-  nativeBuildInputs = with pkgs; [
+  nativeBuildInputs = [
     copyDesktopItems
     makeBinaryWrapper
     cmake
@@ -38,6 +45,7 @@ pkgs.stdenv.mkDerivation {
       icon = "ioquake3";
       comment = "Fast-paced 3D first-person shooter, a community effort to continue supporting/developing id's Quake III Arena";
       desktopName = "ioquake3";
+
       categories = [
         "Game"
         "ActionGame"
@@ -46,4 +54,12 @@ pkgs.stdenv.mkDerivation {
   ];
 
   passthru.updateScript = unstableGitUpdater { };
-}
+
+  meta = {
+    description = "Fast-paced 3D first-person shooter, a community effort to continue supporting/developing id's Quake III Arena";
+    homepage = "https://ioquake3.org/";
+    license = lib.licenses.gpl2;
+    platforms = lib.platforms.linux;
+    maintainers = with lib.maintainers; [ Xatra1 ];
+  };
+})

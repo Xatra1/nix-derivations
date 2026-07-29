@@ -1,10 +1,17 @@
 {
-  pkgs ? <nixpkgs> { },
+  lib,
+  stdenv,
+  cmake,
   fetchFromGitHub,
+  kdePackages,
+  qt6,
+  rapidjson,
   unstableGitUpdater,
 }:
-pkgs.stdenv.mkDerivation {
-  name = "kate-discord-rpc";
+stdenv.mkDerivation (finalAttrs: {
+  __structuredAttrs = true;
+  pname = "kate-discord-rpc";
+  version = "0-unstable-2026-03-17";
 
   src = fetchFromGitHub {
     owner = "leia-uwu";
@@ -15,18 +22,30 @@ pkgs.stdenv.mkDerivation {
   };
 
   enableParallelBuilding = true;
+  strictDeps = true;
 
-  nativeBuildInputs = with pkgs; [
-    cmake
+  buildInputs = [
     kdePackages.extra-cmake-modules
     kdePackages.kcoreaddons
     kdePackages.kconfig
     kdePackages.ktexteditor
     kdePackages.kwidgetsaddons
     kdePackages.qtbase
-    kdePackages.wrapQtAppsHook
+    qt6.wrapQtAppsHook
     rapidjson
   ];
 
+  nativeBuildInputs = [
+    cmake
+  ];
+
   passthru.updateScript = unstableGitUpdater { };
-}
+
+  meta = {
+    description = "Discord Rich Presence plugin for the KDE Plasma text editor Kate";
+    homepage = "https://github.com/leia-uwu/kate-discord-rpc";
+    license = lib.licenses.gpl2;
+    platforms = lib.platforms.linux;
+    maintainers = with lib.maintainers; [ Xatra1 ];
+  };
+})

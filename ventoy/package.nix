@@ -1,11 +1,14 @@
 {
-  pkgs ? <nixpkgs> { },
+  lib,
+  stdenv,
+  parted,
   fetchurl,
   makeWrapper,
   autoPatchelfHook,
 }:
-pkgs.stdenv.mkDerivation (finalAttrs: {
-  name = "ventoy";
+stdenv.mkDerivation (finalAttrs: {
+  __structuredAttrs = true;
+  pname = "ventoy";
   version = "1.1.17";
 
   src = fetchurl {
@@ -26,7 +29,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     makeWrapper
   ];
 
-  propagatedBuildInputs = with pkgs; [ parted ];
+  propagatedBuildInputs = [ parted ];
 
   dontBuild = true;
 
@@ -55,4 +58,12 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
 
     runHook postInstall
   '';
+
+  meta = {
+    description = "Tool to create a bootable drive for chainloading ISO files";
+    homepage = "https://www.ventoy.net/en/index.html";
+    license = lib.licenses.gpl3;
+    platforms = lib.platforms.linux;
+    maintainers = with lib.maintainers; [ Xatra1 ];
+  };
 })
