@@ -19,17 +19,18 @@
   mpg123,
   vulkan-loader,
   SDL2,
+  unstableGitUpdater,
 }:
 stdenv.mkDerivation (finalAttrs: {
   __structuredAttrs = true;
   pname = "ironwail";
-  version = "0.8.1";
+  version = "0.8.1-unstable-2026-08-09";
 
   src = fetchFromGitHub {
     owner = "andrei-drexler";
     repo = "ironwail";
-    tag = "v0.8.1";
-    hash = "sha256-h9P1nmdt6aGwqkb9X14syjWiJLXaIYyqffgpfY+/8e0=";
+    rev = "4483c59a5a0fc7a1f0749c01fc78d886eff6ea9e";
+    hash = "sha256-S/gXw8ICIuZnDmw2nMGd/W7LbYpwf3F8Z7jQnuZz+CM=";
   };
 
   sourceRoot = "source/Quake";
@@ -87,6 +88,8 @@ stdenv.mkDerivation (finalAttrs: {
       ];
     })
   ];
+
+  passthru.updateScript = unstableGitUpdater { };
 
   meta = {
     description = "High-performance fork of the QuakeSpasm engine for id software's Quake";
