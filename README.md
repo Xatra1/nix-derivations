@@ -9,6 +9,8 @@ Take what you like. They're open source, after all.
   
 `miracode`: The vectorized Minecraft-based font Miracode, patched with thousands of additional Nerd Font glyphs. [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts/blob/master/FontPatcher.zip), [Miracode](https://github.com/IdreesInc/Miracode)
 
+`steelseriesgg-rs`: Vibecoded garbage that doesn't work (seriously, the commit history is a mess). Claims to be a FOSS alternative to SteelSeries GG for Linux but none of its features actually do anything on "supported" devices (see [here](https://github.com/Ven0m0/steelseriesgg-rs/issues/283), [here](https://github.com/Ven0m0/steelseriesgg-rs/issues/173), and [here](https://github.com/Ven0m0/steelseriesgg-rs/issues/165)). I will continue to maintain the package but I will not guarantee its functionality. [repo](https://github.com/Ven0m0/steelseriesgg-rs)
+
 `ventoy`: Tool to create a bootable drive for chainloading ISO files. Rewrite of [the original nixpkg](https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/by-name/ve/ventoy/package.nix) to update it from 1.1.12 to the latest release, and slim it down to only contain Ventoy2Disk. Also installs parted, which is required for GPT installs. [repo](https://github.com/ventoy/Ventoy)
 
 **Disclaimer:** Ventoy contains binary blobs which cannot be 100% trusted to be compliant to their licenses or free of malware, but the Ventoy team claims that they are all open source and has done their best to document them [here.](https://github.com/ventoy/Ventoy/blob/master/BLOB_List.md)
