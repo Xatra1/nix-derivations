@@ -8,15 +8,15 @@
 rustPlatform.buildRustPackage (finalAttrs: {
   __structuredAttrs = true;
   pname = "steelseriesgg-rs";
-  version = "0.1.4";
+  version = "0.1.5";
 
   src = fetchFromGitHub {
     owner = "Ven0m0";
     repo = "steelseriesgg-rs";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-u6AvRL37wYBRMNY7iljtJjkvkGla6iCR3opY65IXrXw=";
+    hash = "sha256-uEqO+tniZM5ptYqAENc2JgUaEnbUyEq1oDHvSclZ138=";
   };
-  cargoHash = "sha256-AFBJD48zucXZR+Dh/D2wzsyAhm9OiEC+mHGHJpbUflM=";
+  cargoHash = "sha256-lRwZ78w47/bSGkIsTDrS77YXYwzw+t6pJEEfvmpLMFc=";
 
   enableParallelBuilding = true;
   strictDeps = true;
