@@ -42,6 +42,5 @@ rustPlatform.buildRustPackage (finalAttrs: {
     license = lib.licenses.mit;
     mainProgram = "ssgg";
     platforms = lib.platforms.linux;
-    maintainers = with lib.maintainers; [ Xatra1 ];
   };
 })

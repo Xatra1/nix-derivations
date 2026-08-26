@@ -64,6 +64,5 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://www.ventoy.net/en/index.html";
     license = lib.licenses.gpl3;
     platforms = lib.platforms.linux;
-    maintainers = with lib.maintainers; [ Xatra1 ];
   };
 })

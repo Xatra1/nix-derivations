@@ -36,6 +36,5 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/IdreesInc/Miracode";
     license = lib.licenses.ofl;
     platform = lib.platforms.linux;
-    maintainers = with lib.maintainers; [ Xatra1 ];
   };
 })

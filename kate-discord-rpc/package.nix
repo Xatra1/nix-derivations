@@ -46,6 +46,5 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/leia-uwu/kate-discord-rpc";
     license = lib.licenses.gpl2;
     platforms = lib.platforms.linux;
-    maintainers = with lib.maintainers; [ Xatra1 ];
   };
 })
