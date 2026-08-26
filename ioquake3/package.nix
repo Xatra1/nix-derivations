@@ -38,10 +38,11 @@ stdenv.mkDerivation (finalAttrs: {
     makeWrapper $out/ioq3ded $out/bin/ioq3ded
   '';
 
+  launchFlags = "+set fs_homepath /home/solarfire/.local/share/Quake3";
   desktopItems = [
     (makeDesktopItem {
       name = "ioquake3";
-      exec = "ioquake3 +set fs_homepath /home/solarfire/.local/share/Quake3";
+      exec = "ioquake3 ${finalAttrs.launchFlags}";
       icon = "ioquake3";
       comment = "Fast-paced 3D first-person shooter, a community effort to continue supporting/developing id's Quake III Arena";
       desktopName = "ioquake3";

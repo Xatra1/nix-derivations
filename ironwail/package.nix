@@ -74,10 +74,11 @@ stdenv.mkDerivation (finalAttrs: {
     done
   '';
 
+  launchFlags = "-basedir /home/solarfire/.local/share/ironwail";
   desktopItems = [
     (makeDesktopItem {
       name = "ironwail";
-      exec = "ironwail -basedir /home/solarfire/.local/share/ironwail";
+      exec = "ironwail ${finalAttrs.launchFlags}";
       icon = "ironwail";
       comment = "Fork of the QuakeSpasm engine for id software's Quake";
       desktopName = "Ironwail";
