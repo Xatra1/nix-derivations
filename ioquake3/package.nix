@@ -12,12 +12,12 @@
 stdenv.mkDerivation (finalAttrs: {
   __structuredAttrs = true;
   pname = "ioquake3";
-  version = "0-unstable-2026-07-19";
+  version = "0-unstable-2026-09-17";
 
   src = fetchFromGitHub {
     owner = "ioquake";
     repo = "ioq3";
-    rev = "588393618dbc82e7207c21c6ddecca229944a03a";
+    rev = "83a776283bdb958f82db25554b5ed0966aaf6e49";
     hash = "sha256-BiyBg+Jy8V2v119NqcX/YUwDb8zZdq7+FfjWNenaEA4=";
   };
 
