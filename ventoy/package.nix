@@ -9,11 +9,11 @@
 stdenv.mkDerivation (finalAttrs: {
   __structuredAttrs = true;
   pname = "ventoy";
-  version = "1.1.17";
+  version = "1.1.18";
 
   src = fetchurl {
     url = "https://github.com/ventoy/Ventoy/releases/download/v${finalAttrs.version}/ventoy-${finalAttrs.version}-linux.tar.gz";
-    hash = "sha256-f7TtCM72prTTndGSYNjIApGnjf35r31GFXHiPLvEOAU=";
+    hash = "sha256-2G/53mPZTIuPH2sU0jxVr0uI6CB78ok4kIkqapexrVQ=";
   };
 
   patches = [
