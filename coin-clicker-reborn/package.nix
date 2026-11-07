@@ -64,7 +64,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
         --prefix AUDIO_FILES_PATH : $out/assets/snd
 
     for i in 16 24 32 48 64 72; do
-      install -Dm644 $src/assets/img/coin.png $out/share/icons/hicolor/"$i"x"$i"/coin-clicker-reborn.png
+      install -Dm644 $src/assets/img/coin.png $out/share/icons/hicolor/"$i"x"$i"/apps/coin-clicker-reborn.png
     done
   '';
 
